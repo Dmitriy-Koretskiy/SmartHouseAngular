@@ -1,0 +1,36 @@
+
+<div>
+  <acme-navbar creation-date="main.creationDate"></acme-navbar>
+
+</div>
+<sidebar></sidebar>
+
+  <div  class="dashboard">
+    <div class="row">
+
+      <div class="col-sm-6 col-md-4" ng-repeat="test in main.tests ">
+        <div class="thumbnail">
+          <img class="pull-right" ng-src="assets/images/{{  }}" alt="{{ test.title }}">
+          <div class="caption">
+            <h3>{{ test.title }}</h3>
+            <p>{{ test.description }}</p>
+            <p><a ng-href="{{test.url}}">{{ test.url }}</a></p>
+          </div>
+        </div>
+      </div>
+
+    <!--   <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+        <div class="thumbnail">
+          <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+          <div class="caption">
+            <h3>{{ awesomeThing.title }}</h3>
+            <p>{{ awesomeThing.description }}</p>
+            <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+          </div>
+        </div>
+      </div> -->
+   
+
+    </div>
+
+  </div>
