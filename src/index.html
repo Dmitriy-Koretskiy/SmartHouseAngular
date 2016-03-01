@@ -1,6 +1,6 @@
 <!doctype html>
 <html ng-app="smartHouseAngular">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>smartHouseAngular</title>
     <meta name="description" content="">
@@ -16,14 +16,21 @@
     <link rel="stylesheet" href="app/main/main.css">
     <link rel="stylesheet" href="app/components/navbar/navbar.css">
     <link rel="stylesheet" href="app/components/sidebar/sidebar.css">
+    
+    <base href="/">
+</head>
+<body>
 
-  </head>
-  <body>
-   
+    <div>
+        <acme-navbar creation-date="main.creationDate"></acme-navbar>
+
+    </div>
+
+    <sidebar></sidebar>
 
     <div ng-view></div>
 
-   
+
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -40,14 +47,15 @@
     <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-aside/dist/js/angular-aside.js"></script>
-  
 
-<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
 
     <script src="app/index.module.js"></script>
     <script src="app/components/webDevTec/webDevTec.service.js"></script>
     <script src="app/components/navbar/navbar.directive.js"></script>
     <script src="app/components/sidebar/sidebar.directive.js"></script>
+    <script src="app/components/room/room.controller.js"></script>
     <script src="app/components/malarkey/malarkey.directive.js"></script>
     <script src="app/components/githubContributor/githubContributor.service.js"></script>
     <script src="app/main/main.controller.js"></script>
@@ -56,5 +64,5 @@
     <script src="app/index.constants.js"></script>
     <script src="app/index.config.js"></script> 
 
-  </body>
+</body>
 </html>

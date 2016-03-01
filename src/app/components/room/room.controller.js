@@ -3,15 +3,16 @@
 
   angular
     .module('smartHouseAngular')
-    .controller('MainController', MainController);
+    .controller('RoomController', RoomController);
 
   /** @ngInject */
-  function MainController($scope, $http) {
+  function RoomController($scope, $http) {
   
     $scope.tests = [];
 
     $http.get("api/startpage").success(function (result) {
       $scope.tests = result;
+      vm.tests2= result.data;
 
     });
 
