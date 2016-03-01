@@ -1,6 +1,6 @@
   nav.sidebar, .main{
     position: fixed;
-    /*z-index: 2000;*/
+    z-index: 1000;
     -webkit-transition: margin 200ms ease-out;
       -moz-transition: margin 200ms ease-out;
       -o-transition: margin 200ms ease-out;
@@ -8,6 +8,7 @@
   }
 nav.sidebar .navbar-nav{
   padding-top: 80%;
+  margin-left: 10px;  
 }
   .main{
     padding: 10px 10px 0 10px;

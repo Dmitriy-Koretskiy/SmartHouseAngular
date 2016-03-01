@@ -3,12 +3,14 @@
   <acme-navbar creation-date="main.creationDate"></acme-navbar>
 
 </div>
+
 <sidebar></sidebar>
+<div class="container-fluid">
 
   <div  class="dashboard">
     <div class="row">
-
-      <div class="col-sm-6 col-md-4" ng-repeat="test in tests ">
+      <h1 class="page-header">Rooms</h1>
+      <div class="col-sm-6 col-md-4 "  ng-repeat="test in tests ">
         <div class="thumbnail">
           <!-- <img class="pull-right" ng-src="assets/images/{{  }}" alt="{{ test.title }}"> -->
           <div class="caption">
@@ -19,16 +21,6 @@
         </div>
       </div>
 
-      <div class="col-sm-6 col-md-4" ng-repeat="test in main.tests2'">
-        <div class="thumbnail">
-          <div class="caption">
-             <h3>{{ test.Id }}</h3>
-            <p>{{ test.Name }}</p>
-            <p><a ng-href="{{test.Name}}">{{ test.Name }}</a></p>
-          </div>
-        </div>
-      </div>
-   
 
     <!--   <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
         <div class="thumbnail">
@@ -40,8 +32,9 @@
           </div>
         </div>
       </div> -->
-   
+
 
     </div>
 
   </div>
+</div>

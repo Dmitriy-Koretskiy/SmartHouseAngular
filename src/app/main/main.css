@@ -1,4 +1,7 @@
+body {
+    padding-top: 50px;
+}
 .dashboard{
-	width: 60%;
-	margin: 0 0 0 25%;
+	width: 75%;
+	margin: 0 0 0 20%;
 }
