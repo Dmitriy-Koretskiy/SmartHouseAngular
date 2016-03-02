@@ -5,21 +5,18 @@
     .module('smartHouseAngular')
     .controller('MainController', MainController);
 
-  /** @ngInject */
   function MainController($scope, $http) {
   
-    $scope.tests = [];
+     getRooms($scope,$http);
+    };
 
-    $http.get("api/startpage").success(function (result) {
-      $scope.tests = result;
 
-    });
 
-    // activate();
-
-    function getRooms(){
-
-    }
+    function getRooms($scope,$http){
+      $http.get("api/startpage").success(function (result) {
+        $scope.tests = result;
+      }
+    )};
 
     // function activate() {
     //   getWebDevTec();
@@ -41,4 +38,4 @@
     //   });
     // }
   }
-})();
+)();
