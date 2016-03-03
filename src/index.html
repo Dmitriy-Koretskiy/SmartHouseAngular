@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
     <link rel="stylesheet" href="bower_components/angular-aside/dist/css/angular-aside.css" />
@@ -22,26 +22,39 @@
 </head>
 <body>
 
+
+
+
+
     <div>
         <acme-navbar creation-date="main.creationDate"></acme-navbar>
 
     </div>
 
-    <sidebar></sidebar>
+    <!-- <sidebar></sidebar> -->
 
+
+<div style="margin: 0 0 0 100px">
      <ul class="nav">
         <li><a ui-sref="house.room">room</a></li>
+        <li><a ui-sref="room.tab">tab</a></li>
         <li><a ui-sref="room({roomId: '4'})">house</a></li>
         
       </ul>
-    <!-- <div ui-sref="main"></div> -->
-    <div ui-view>
-       
-    </div>
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
+    <!-- <div ui-sref="main"></div> -->
+    <div ui-view> </div>
+</div>
+    
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+  
+  <!--   <script src="bower_components/angular/angular.js"></script> 
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+ -->
+
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -51,7 +64,7 @@
     <!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>  
     <script src="bower_components/malarkey/dist/malarkey.min.js"></script>
     <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="bower_components/moment/moment.js"></script>
@@ -65,6 +78,9 @@
     <script src="app/components/navbar/navbar.directive.js"></script>
     <script src="app/components/sidebar/sidebar.directive.js"></script>
     <script src="app/components/room/room.controller.js"></script>
+    <script src="app/components/control/control.js"></script>
+    <script src="app/components/configuration/configuration.js"></script>
+    <script src="app/components/statistic/statistic.js"></script>
     <script src="app/components/malarkey/malarkey.directive.js"></script>
     <script src="app/components/githubContributor/githubContributor.service.js"></script>
     <script src="app/main/main.controller.js"></script>
@@ -72,6 +88,7 @@
     <script src="app/index.route.js"></script>
     <script src="app/index.constants.js"></script>
     <script src="app/index.config.js"></script> 
+
 
 </body>
 </html>
