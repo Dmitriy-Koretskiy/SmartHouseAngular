@@ -1,7 +1,32 @@
 <div>This content is in Tab 1</div>
-<!-- <div ng-controller="ControlController"> -->
- <div ng-repeat="trigger in triggers ">
- 	<h3>{{trigger.Id}}</h3>
- </div>
 
- <!-- </div> -->
+
+<lable>
+	<div class="make-switch" >
+		<input type="checkbox" checked init-switch>
+	</div>
+
+	<div id="test">
+	</div>
+
+
+	<div class="container-fluid">
+	<h1 class="page-header">Rooms</h1>
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-lg-3"  ng-repeat="triggersState in triggersStates" >
+				<div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 ">
+							<h4>{{triggersState.Name }}</h4>
+					</div>
+					<div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+						<div class="make-switch ">
+							<input type="checkbox" init-switch>
+						</div>		
+					</div>
+				</div>
+				<!-- <div class="inline"> -->
+				<!-- </div> -->			
+			</div>
+		</div>
+	</div>
+	<div ></div>

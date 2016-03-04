@@ -17,14 +17,11 @@
     <link rel="stylesheet" href="app/main/main.css">
     <link rel="stylesheet" href="app/components/navbar/navbar.css">
     <link rel="stylesheet" href="app/components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="app/components/control/control.css">
     
     <base href="/">
 </head>
 <body>
-
-
-
-
 
     <div>
         <acme-navbar creation-date="main.creationDate"></acme-navbar>
@@ -35,12 +32,7 @@
 
 
 <div style="margin: 0 0 0 100px">
-     <ul class="nav">
-        <li><a ui-sref="house.room">room</a></li>
-        <li><a ui-sref="room.tab">tab</a></li>
-        <li><a ui-sref="room({roomId: '4'})">house</a></li>
-        
-      </ul>
+   
 
     <!-- <div ui-sref="main"></div> -->
     <div ui-view> </div>
@@ -74,15 +66,14 @@
     <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
 
     <script src="app/index.module.js"></script>
-    <script src="app/components/webDevTec/webDevTec.service.js"></script>
     <script src="app/components/navbar/navbar.directive.js"></script>
     <script src="app/components/sidebar/sidebar.directive.js"></script>
     <script src="app/components/room/room.controller.js"></script>
     <script src="app/components/control/control.js"></script>
+    <script src="app/components/control/initSwitch.directive.js"></script>
     <script src="app/components/configuration/configuration.js"></script>
     <script src="app/components/statistic/statistic.js"></script>
     <script src="app/components/malarkey/malarkey.directive.js"></script>
-    <script src="app/components/githubContributor/githubContributor.service.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/index.run.js"></script>
     <script src="app/index.route.js"></script>
