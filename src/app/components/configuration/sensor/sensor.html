@@ -1,0 +1,11 @@
+<div class = "pagewrapper">
+	<div class="container">
+		<ul class="list-group">
+		<li class="list-group-item" ng-repeat="sensor in sensors" > 
+			<a data-toggle="popover" role="button"  data-placement="right" data-titlt="1" tabindex="0"  init-sensor-popover sensorid="sensor.Id">{{sensor.Name}}</a>
+		</li>
+
+		</ul>
+	</div>
+
+

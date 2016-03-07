@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <link rel="stylesheet" href="bower_components/angular-aside/dist/css/angular-aside.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-switch/css/bootstrap-switch.min.css"/>
 
     <link rel="stylesheet" href="app/index.css">
-    <link rel="stylesheet" href="app/components/malarkey/malarkey.css">
     <link rel="stylesheet" href="app/main/main.css">
     <link rel="stylesheet" href="app/components/navbar/navbar.css">
     <link rel="stylesheet" href="app/components/sidebar/sidebar.css">
@@ -38,7 +38,7 @@
     <div ui-view> </div>
 </div>
     
-  <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
@@ -56,10 +56,11 @@
     <!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>  
-    <script src="bower_components/malarkey/dist/malarkey.min.js"></script>
-    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>  
+
+    <!-- <script src="bower_components/moment/moment.js"></script> -->
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script src="bower_components/angular-aside/dist/js/angular-aside.js"></script>
     <script src="bower_components/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 
@@ -69,17 +70,23 @@
     <script src="app/components/navbar/navbar.directive.js"></script>
     <script src="app/components/sidebar/sidebar.directive.js"></script>
     <script src="app/components/room/room.controller.js"></script>
-    <script src="app/components/control/control.js"></script>
+    <script src="app/components/control/control.controller.js"></script>
     <script src="app/components/control/initSwitch.directive.js"></script>
-    <script src="app/components/configuration/configuration.js"></script>
-    <script src="app/components/statistic/statistic.js"></script>
-    <script src="app/components/malarkey/malarkey.directive.js"></script>
+    <script src="app/components/control/refreshTriggerState.derective.js"></script>
+    <script src="app/components/control/serverSwitch.directive.js"></script>
+    <script src="app/components/configuration/configuration.controller.js"></script>
+    <script src="app/components/configuration/sensor/sensor.controller.js"></script>
+    <script src="app/components/configuration/trigger/trigger.controller.js"></script>
+    <script src="app/components/configuration/houseController/houseController.controller.js"></script>
+    <script src="app/components/configuration/sensor/initSensorPopover.directive.js"></script>
+    <script src="app/components/configuration/houseController/initHouseControllerPopover.directive.js"></script>
+    <script src="app/components/configuration/trigger/inittriggerPopover.directive.js"></script>
+    <script src="app/components/statistic/statistic.controller.js"></script>
+    <script src="app/components/statistic/sensor/sensorsValuesForDay.controller.js"></script>
+     <script src="app/components/statistic/sensor/sensorsValuesForDay.directive.js"></script>
+    <script src="app/components/statistic/sensor/sensorsValuesForHour.controller.js"></script>
+    <script src="app/components/statistic/trigger/triggersAction.controller.js"></script>
     <script src="app/main/main.controller.js"></script>
-    <script src="app/index.run.js"></script>
     <script src="app/index.route.js"></script>
-    <script src="app/index.constants.js"></script>
-    <script src="app/index.config.js"></script> 
-
-
 </body>
 </html>

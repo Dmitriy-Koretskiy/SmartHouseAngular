@@ -1,17 +1,16 @@
 <div>This content is in Tab 1</div>
 
-
 <lable>
 	<div class="make-switch" >
-		<input type="checkbox" checked init-switch>
+		<input type="checkbox"  id="server-work-state" checked init-switch server-switch>
 	</div>
 
-	<div id="test">
+	<div id="test">{{options}}
 	</div>
 
 
 	<div class="container-fluid">
-	<h1 class="page-header">Rooms</h1>
+	<h2 class="page-header">Rooms</h2>
 		<div class="row">
 			<div class="col-sm-6 col-md-4 col-lg-3"  ng-repeat="triggersState in triggersStates" >
 				<div class="row">
@@ -20,13 +19,9 @@
 					</div>
 					<div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
 						<div class="make-switch ">
-							<input type="checkbox" init-switch>
+							<input type="checkbox" init-switch refresh-trigger-state triggerid= "triggersState.Id">
 						</div>		
 					</div>
 				</div>
-				<!-- <div class="inline"> -->
-				<!-- </div> -->			
-			</div>
 		</div>
 	</div>
-	<div ></div>

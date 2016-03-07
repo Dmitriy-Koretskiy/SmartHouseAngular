@@ -3,10 +3,7 @@
 
   angular
     .module('smartHouseAngular')
-    .directive('sidebar', sidebar);
-
-  /** @ngInject */
-  function sidebar() {
+    .directive('sidebar',  function () {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/sidebar/sidebar.html',
@@ -20,12 +17,10 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController(moment) {
-      var vm = this;
+    
+  });
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-     
-    }
-  }
+  /** @ngInject */
+ 
 
 })();

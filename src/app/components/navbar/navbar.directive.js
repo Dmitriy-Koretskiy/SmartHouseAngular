@@ -2,16 +2,13 @@
   'use strict';
 
   angular
-    .module('smartHouseAngular')
-    .directive('acmeNavbar', acmeNavbar);
-
-  /** @ngInject */
-  function acmeNavbar() {
+  .module('smartHouseAngular')
+  .directive('acmeNavbar',  function () {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
+        creationDate: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -21,12 +18,10 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
+    function NavbarController() {
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
     }
   }
 
+  )
 })();

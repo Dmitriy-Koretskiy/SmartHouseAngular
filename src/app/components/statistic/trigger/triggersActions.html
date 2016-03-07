@@ -1,0 +1,14 @@
+<h2 class="page-header">Triggers statistic</h2>
+
+<table class="table table-hover">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Time of change</th>
+	</tr>
+	<tr ng-repeat="triggersAction in triggersActions">
+		<td>{{triggersAction.TriggerName}}</td>
+		<td>{{triggersAction.Description}}</td>
+		<td>{{triggersAction.TimeChange}}</td>
+	</tr>
+</table>
