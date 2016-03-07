@@ -20,41 +20,36 @@
       .state('room', {
         url: "/room/{roomId:int}",
         templateUrl: 'app/components/room/room.html',
-        controller: 'RoomController'     
-      })
-      .state('sensor.create', {
-        url: "/create/{id:int}",
-        templateUrl: 'app/components/configuration/sensor/sensor.create.html',
-        // controller: 'SensorsValueForHourController',       
+        controller: 'RoomController',     
       })
       .state('room.control', {
-        url: "",
+        url: "/control",
         templateUrl: 'app/components/control/control.html',
         controller: 'ControlController',       
       })
       .state('room.configuration', {
-        url: "",
+        url: "/configuration",
         templateUrl: 'app/components/configuration/configuration.html',
         controller: 'ConfigurationController',  
       })
       .state('room.configuration.sensor', {
-        url: "",
+        url: "/sensors",
         templateUrl: 'app/components/configuration/sensor/sensor.html',
         controller: 'SensorController',      
       })
       .state('room.configuration.trigger', {
-        url: "",
+        url: "/triggers",
         templateUrl: 'app/components/configuration/trigger/trigger.html',
         controller: 'TriggerController',      
       })
       .state('room.configuration.houseController', {
-        url: "",
+        url: "/housecontrollers",
         templateUrl: 'app/components/configuration/houseController/houseController.html',
         controller: 'HouseControllerController',      
       })
 
       .state('room.statistic', {
-        url: "",
+        url: "/statistic",
         templateUrl: 'app/components/statistic/statistic.html',
         controller: 'StatisticController',       
       })
