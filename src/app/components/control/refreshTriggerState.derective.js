@@ -4,7 +4,7 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 		scope : {
 			triggerid: "="
 		},
-		link : function(scope, element){
+		link : function(scope, element, attrs){
 
 
 			$http.get("api/control/serverStatus")
@@ -20,20 +20,23 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 			element.on('switchChange.bootstrapSwitch', function(event, state) {
 				$http.get("api/control/serverStatus")
 				.then(function (result) {
-					if(result.data != "ServerDisable")
+					if(result.data == "ServerDisable")
 					{
+						
 						if(state == true){
-							$http.post("api/control", "On");
+							var msg = {LastState: "On", Id: scope.triggerid};
+							$http.post("api/control", msg);
 						}
 						else{
-							$http.post("api/control", "Off");
+							var msg = {LastState: "Off", Id: scope.triggerid};
+							$http.post("api/control", msg);
 						}	
 					}  
 				});
 			});
 
 			checkingTriggerState = $interval(function () {
-				var disable;
+				
 				$http.get("api/control/serverStatus").then(function(result){
 					if(result.data == "ServerDisable"){
 						element.bootstrapSwitch('readonly', false);
@@ -42,7 +45,7 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 						$http.get("api/control/triggerState?triggerId="+ scope.triggerid)
 						.then(function (result) {
 						
-							if(result.data == "On")
+							if((result.data == "On")||(result.data == "ON"))
 							{
 								element.bootstrapSwitch('readonly', false);
 								element.bootstrapSwitch('state', true);
@@ -55,13 +58,7 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 							}
 						})
 					}
-				});
-				// if(!disable){
-					
-				// }
-				// 	else{
-						
-				// 	} 		
+				});		
 			}
 			, 3000);
 		}

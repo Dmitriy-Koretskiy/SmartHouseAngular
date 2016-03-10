@@ -2,13 +2,12 @@ angular.module('smartHouseAngular').directive('valuesForDay',  function($interva
 
 	return{
 		link : function(scope, element, attrs){
-
-		
-		  var id = attrs.sensorid;
+	
+			var id = attrs.sensorid;
 			checkingSensorsValues = $interval(function () {
-				 $http.get("api/sensorsValue/forDay?sensorIdForDay="+ id)
-				 .then(function (result) {
-				 	var  carData= [];
+				$http.get("api/sensorsValue/forDay?sensorIdForDay="+ id)
+				.then(function (result) {
+					var  carData= [];
 					var  carLabels= [];
 					var i = 0;
 					angular.forEach(result.data, function(value, key){
@@ -21,11 +20,11 @@ angular.module('smartHouseAngular').directive('valuesForDay',  function($interva
 						carData.push(value.Value);
 					})
 					
-				var data= [carData]; 
-				scope[attrs.chartData] = data;
-    			scope[attrs.chartLabels] = carLabels;
-			})
-		}, 4000)
-	
-	}}
-});
+					var data= [carData]; 
+					scope[attrs.chartData] = data;
+					scope[attrs.chartLabels] = carLabels;
+				})
+			}, 4000)
+
+		}}
+	});

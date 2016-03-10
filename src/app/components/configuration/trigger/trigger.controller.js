@@ -5,10 +5,6 @@ angular.module('smartHouseAngular').controller('TriggersController', function ($
 		$scope.sensors = result.data;
 	})
 
-	$http.get("api/trigger/getTriggersTypes").then(function(result){
-		$scope.sensorsTypes = result.data;
-	})
-	
 	$scope.sensorDTO = {RoomId: $stateParams.roomId};
 
 	$scope.delete = function (id) {

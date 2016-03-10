@@ -14,7 +14,7 @@
 //???
     function getRooms($scope,$http){
       $http.get("api/startpage").success(function (result) {
-        $scope.tests = result;
+        $scope.rooms = result;
       }
     )};
   })

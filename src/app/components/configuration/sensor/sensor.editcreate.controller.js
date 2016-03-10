@@ -3,24 +3,14 @@ angular.module('smartHouseAngular').controller('SensorEditCreateController', fun
 	$http.get("api/sensor/getSensorsTypes").then(function(result){
 		$scope.sensorsTypes = result.data;
 	})
-	
-	$scope.sensorDTO = {RoomId: $stateParams.roomId};
 
-	if($stateParams.id == undefined){
-		$scope.create = function () {
+	$scope.changeSensor = function(){
+		if($scope.sensorDTO.Id == undefined){
+			$scope.sensorDTO.RoomId = $stateParams.roomId;
 			$http.post("api/sensor", $scope.sensorDTO);
 		}
-	}
-	else {
-		// $scope.details = function (id) {
-		// 	$http.get("api/sensor/getSensorById?roomId="+ $stateParams.sensorId).then(function(result){
-		// 		$scope.sensorDTO = result.data;
-		// 	})
-		// }
-
-		$scope.edit = function () {
-			$http.put("api/sensor/edit", $scope.sensorDTO);
+		else{
+			$http.put("api/sensor", $scope.sensorDTO);
 		}
 	}
-	
 });

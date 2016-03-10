@@ -4,16 +4,14 @@ angular.module('smartHouseAngular').controller('HouseControllerEditCreateControl
 		$scope.houseControllersTypes = result.data;
 	})
 	
-	$scope.houseControllerDTO = {RoomId: $stateParams.roomId};
-
-	if($stateParams.id == undefined){
-		$scope.create = function () {
-			$http.post("api/houseController", $scope.houseControllerDTO);
+	$scope.changeHouseController = function(){
+		if($scope.houseControllerDTO.Id == undefined){
+			$scope.houseControllerDTO.RoomId = $stateParams.roomId;
+			$http.post("api/housecontroller", $scope.houseControllerDTO);
 		}
-	}
-	else {
-		$scope.edit = function () {
-			$http.put("api/houseController/edit", $scope.houseControllerDTO);
+		else{
+			$http.put("api/housecontroller", $scope.houseControllerDTO);
+			// $http.post("api/sensor/edit?id="+$scope.sensorDTO.Id, $scope.sensorDTO)
 		}
 	}
 	

@@ -1,6 +1,8 @@
-angular.module('smartHouseAngular').controller('SensorsValueForHourController', function ($interval,  $timeout,$stateParams, $scope, $http) {
+angular.module('smartHouseAngular').controller('SensorsValueController', function ($interval,  $timeout,$stateParams, $scope, $http) {
 
-
+	$http.get("api/sensor/getSensorsByRoomId?roomId="+ $stateParams.roomId).then(function(result){
+		$scope.sensors = result.data;
+	})
 
       $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
 	  $scope.series = ['Series A'];
