@@ -2,22 +2,25 @@ angular.module('smartHouseAngular').directive('serverSwitch',  function($interva
 
 	return{ link : function(scope, element){
 
-			element.on('switchChange.bootstrapSwitch', function(event, state) {
-				var serverStatus
-				if(state == true)
-				{
-					serverStatus = "ServerWork";
-				}
-				else
-				{
-					serverStatus = "ServerDisable";
-				}
-				$http.put("api/control/serverStatus", serverStatus);
+
+			element.on('switchChange.bootstrapSwitch', function(scope,event, state) {
+					scope.SystemWorkStatus = {Status: "try" };
+					if(event == true)
+					{
+						scope.SystemWorkStatus.Status = "ServerWork";
+					}
+					else
+					{
+						scope.SystemWorkStatus.Status = "ServerDisable";
+					}
+					$http.put("api/control/putserverstatus", scope.SystemWorkStatus).success(function(result){
+						var t = result;
+					});		
 				
 			});
 
 			checkingTriggerState = $interval(function () {
-				$http.get("api/control/serverStatus")
+				$http.get("api/control/serverstatus")
 				.then(function (result) {
 
 					if(result.data == "ServerDisable"){
@@ -27,7 +30,8 @@ angular.module('smartHouseAngular').directive('serverSwitch',  function($interva
 					{
 						element.bootstrapSwitch('state', true);
 					}
-					} )			
+					} )
+					statusChanged =true;
 				}
 			, 3000);
 		}

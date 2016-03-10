@@ -1,4 +1,4 @@
-angular.module('smartHouseAngular').directive('valuesForDay',  function($interval, $http){
+angular.module('smartHouseAngular').directive('valuesForDay',  function($interval, $http, $filter){
 
 	return{
 		link : function(scope, element, attrs){
@@ -13,7 +13,8 @@ angular.module('smartHouseAngular').directive('valuesForDay',  function($interva
 					var i = 0;
 					angular.forEach(result.data, function(value, key){
 						if(i==10){
-							carLabels.push(value.TimeMeasurement);
+							var _date = $filter('date')(new Date(value.TimeMeasurement), 'HH:mm:ss');
+							carLabels.push(_date.toUpperCase());
 							i=0;
 						}
 						i++;

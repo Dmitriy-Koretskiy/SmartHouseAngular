@@ -6,55 +6,64 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 		},
 		link : function(scope, element){
 
-			
-		//	element.bootstrapSwitch('readonly', true);
-			$http.get("api/control/triggerState?triggerId="+ scope.triggerid)
+
+			$http.get("api/control/serverStatus")
 			.then(function (result) {
 
-					if(result.data != "ServerDisable"){
-						element.bootstrapSwitch('readonly', true);
-					}
-					else{
-						false;
-					}
-				});
+				if(result.data != "ServerDisable"){
+					element.bootstrapSwitch('readonly', true);
+				}
+				else{
+					element.bootstrapSwitch('readonly', false);
+				}
+			});
 			element.on('switchChange.bootstrapSwitch', function(event, state) {
 				$http.get("api/control/serverStatus")
 				.then(function (result) {
-				   if(result.data != "ServerDisable")
-				   {
-				   		if(state == true){
-				   			$http.post("api/control", "On");
-				   		}
-				   		else{
-				   			$http.post("api/control", "Off");
-				   		}	
-				   }  
+					if(result.data != "ServerDisable")
+					{
+						if(state == true){
+							$http.post("api/control", "On");
+						}
+						else{
+							$http.post("api/control", "Off");
+						}	
+					}  
 				});
 			});
 
 			checkingTriggerState = $interval(function () {
-				$http.get("api/control/triggerState?triggerId="+ scope.triggerid)
-				.then(function (result) {
-
-					if(result.data != "ServerDisable"){
-						if(result.data == "On")
-						{
-							element.bootstrapSwitch('readonly', false);
-							element.bootstrapSwitch('state', true);
-							element.bootstrapSwitch('readonly', true);
-						}
-						else{
-							element.bootstrapSwitch('readonly', false);
-							element.bootstrapSwitch('state', false);
-							element.bootstrapSwitch('readonly', true);
-						}
+				var disable;
+				$http.get("api/control/serverStatus").then(function(result){
+					if(result.data == "ServerDisable"){
+						element.bootstrapSwitch('readonly', false);
 					}
 					else{
-						element.bootstrapSwitch('readonly', false);
-					} 			
-				})
-			}, 3000);
+						$http.get("api/control/triggerState?triggerId="+ scope.triggerid)
+						.then(function (result) {
+						
+							if(result.data == "On")
+							{
+								element.bootstrapSwitch('readonly', false);
+								element.bootstrapSwitch('state', true);
+								element.bootstrapSwitch('readonly', true);
+							}
+							else{
+								element.bootstrapSwitch('readonly', false);
+								element.bootstrapSwitch('state', false);
+								element.bootstrapSwitch('readonly', true);
+							}
+						})
+					}
+				});
+				// if(!disable){
+					
+				// }
+				// 	else{
+						
+				// 	} 		
+			}
+			, 3000);
 		}
 	}
 });

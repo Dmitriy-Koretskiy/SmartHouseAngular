@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="app/index.css">
     <link rel="stylesheet" href="app/main/main.css">
     <link rel="stylesheet" href="app/components/navbar/navbar.css">
+    <link rel="stylesheet" href="app/components/configuration/configuration.css">
     <link rel="stylesheet" href="app/components/sidebar/sidebar.css">
     <link rel="stylesheet" href="app/components/control/control.css">
     
@@ -63,11 +64,12 @@
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script src="bower_components/angular-aside/dist/js/angular-aside.js"></script>
     <script src="bower_components/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-
+    <script src="bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.min.js"></script>
     <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
 
     <script src="app/index.module.js"></script>
     <script src="app/components/navbar/navbar.directive.js"></script>
+     <script src="app/components/navbar/popover.directive.js"></script>
     <script src="app/components/sidebar/sidebar.directive.js"></script>
     <script src="app/components/room/room.controller.js"></script>
     <script src="app/components/control/control.controller.js"></script>
@@ -75,11 +77,20 @@
     <script src="app/components/control/refreshTriggerState.derective.js"></script>
     <script src="app/components/control/serverSwitch.directive.js"></script>
     <script src="app/components/configuration/configuration.controller.js"></script>
-    <script src="app/components/configuration/sensor/sensor.controller.js"></script>
+    <script src="app/components/configuration/sensor/sensors.controller.js"></script>
+    <script src="app/components/configuration/sensor/sensor.editcreate.controller.js"></script>
+    <script src="app/components/configuration/trigger/trigger.details.directive.js"></script>
+    <script src="app/components/configuration/trigger/trigger.editcreate.controller.js"></script>
+    <script src="app/components/configuration/houseController/houseController.details.directive.js"></script>
+    <script src="app/components/configuration/houseController/houseController.editcreate.controller.js"></script>
+    
+
+    <script src="app/components/configuration/sensor/sensor.details.directive.js"></script>
+    <script src="app/components/configuration/sensor/bootstrapSwMod.js"></script>
     <script src="app/components/configuration/trigger/trigger.controller.js"></script>
     <script src="app/components/configuration/houseController/houseController.controller.js"></script>
-    <script src="app/components/configuration/sensor/initSensorPopover.directive.js"></script>
-    <script src="app/components/configuration/houseController/initHouseControllerPopover.directive.js"></script>
+<!--     <script src="app/components/configuration/sensor/initSensorPopover.directive.js"></script>
+    <script src="app/components/configuration/houseController/initHouseControllerPopover.directive.js"></script> -->
     <script src="app/components/configuration/trigger/inittriggerPopover.directive.js"></script>
     <script src="app/components/statistic/statistic.controller.js"></script>
     <script src="app/components/statistic/sensor/sensorsValuesForDay.controller.js"></script>
