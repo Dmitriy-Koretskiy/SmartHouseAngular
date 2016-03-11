@@ -2,30 +2,41 @@ angular.module('smartHouseAngular').directive('valuesForHour',  function($interv
 
 	return{
 		link : function(scope, element, attrs){
-	
-			var id = attrs.sensorid;
-			checkingSensorsValues = $interval(function () {
-				$http.get("api/sensorsValue/forHour?sensorIdForHour="+ id)
+	GetValues();
+			checkingSensorsValues = $interval(function () {	GetValues()	}, 4000);
+
+			function GetValues(){
+				$http.get("api/sensorsvalue/forHour?sensorIdForHour="+ attrs.sensorid)
 				.then(function (result) {
 					var  carData= [];
 					var  carLabels= [];
-					var i = 0;
-					angular.forEach(result.data, function(value, key){
-						if(i==10){
-							var _date = $filter('date')(new Date(value.TimeMeasurement), 'HH:mm:ss');
-							carLabels.push(_date.toUpperCase());
-							i=0;
-						}
-						i++;
-						carData.push(value.Value);
-					})
-					
-					var data= [carData]; 
-					scope[attrs.chartData] = data;
-					scope[attrs.chartLabels] = carLabels;
-					scope[attrs.chartSeries] = result.data[0].SensorName;	
-				})
-			}, 4000)
+					var step;
+					var length = result.data.length;
 
+					if(length <= 10)
+					{
+						step = 1;
+					}
+					if((length <= 50)&&(length > 10)){
+						step = 5;
+					}
+					if(length > 50){
+						step = ~~(result.data.length/5);
+					}
+					for (var i = 0; i < length; i = i+ step) {
+						
+						var _date = $filter('date')(new Date(result.data[i].TimeMeasurement), 'HH:mm:ss');
+							carLabels.push(_date.toUpperCase());
+							carData.push(result.data[i].Value);
+					}
+							
+			
+					scope[attrs.chartData] = [carData];
+					scope[attrs.chartLabels] = carLabels;
+		
+				})
+			}
 		}}
 	});
+	
+		

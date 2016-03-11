@@ -24,12 +24,10 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 					{
 						
 						if(state == true){
-							var msg = {LastState: "On", Id: scope.triggerid};
-							$http.post("api/control", msg);
+							$http.post("api/control", {LastState: "On", Id: scope.triggerid});
 						}
 						else{
-							var msg = {LastState: "Off", Id: scope.triggerid};
-							$http.post("api/control", msg);
+							$http.post("api/control", {LastState: "Off", Id: scope.triggerid});
 						}	
 					}  
 				});
