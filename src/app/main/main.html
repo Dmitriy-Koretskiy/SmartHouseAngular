@@ -1,20 +1,45 @@
 
 <div class="container">
+  <h3 class="page-header">Rooms</h3>
 
 
-   <h1 class="page-header">Rooms</h1>
 
-    <div class="row">
-      <div class="col-sm-5 col-md-4"  ng-repeat="room in rooms">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3>{{ room.Name }}</h3>
-            <p><a ui-sref="room({roomId: {{room.Id}}})">Enter</a></p>
+ <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contactForm"> Contact Us</button>
+
+
+<div class="modal fade" id="contactForm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Contact Form</h4>
+      </div>
+      <div class="modal-body">
+        <?php if( function_exists( 'ninja_forms_display_form' ) ){ ninja_forms_display_form( 1 ); } ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!--   <div class="row">
+    <div class="col-sm-6 col-xs-6"  ng-repeat="room in rooms">
+
+        <div class="room">
+            <div class="thumbnail">
+            <div class="caption">
+            <h4>{{ room.Name }}</h4>
+              <p><a ui-sref="room({roomId: {{room.Id}}})">
+                <img class="room-img" src="{{room.Image}}">
+              </a></p>
+            </div>
           </div>
         </div>
-      </div>
-
     </div>
+  </div> -->
 
-  </div>
-        <div ui-view></div>
+</div>
+<div ui-view></div>

@@ -20,53 +20,51 @@
       .state('room', {
         url: "/room/{roomId:int}",
         templateUrl: 'app/components/room/room.html',
-        controller: 'RoomController',     
+        controller: 'RoomController'   
       })
       .state('room.control', {
         url: "/control",
         templateUrl: 'app/components/control/control.html',
-        controller: 'ControlController',       
+        controller: 'ControlController'       
       })
       .state('room.configuration', {
         url: "/configuration",
-        templateUrl: 'app/components/configuration/configuration.html',
-        controller: 'ConfigurationController',  
+        templateUrl: 'app/components/configuration/configuration.html' 
       })
       .state('room.configuration.sensors', {
         url: "/sensors",
         templateUrl: 'app/components/configuration/sensor/sensor.html',
-        controller: 'SensorsController',      
+        controller: 'SensorsController'      
       })
       .state('room.configuration.triggers', {
         url: "/triggers",
         templateUrl: 'app/components/configuration/trigger/trigger.html',
-        controller: 'TriggersController',      
+        controller: 'TriggersController'      
       })
       .state('room.configuration.houseControllers', {
         url: "/housecontrollers",
         templateUrl: 'app/components/configuration/houseController/houseController.html',
-        controller: 'HouseControllersController',      
+        controller: 'HouseControllersController'      
       })
 
       .state('room.statistic', {
         url: "/statistic",
-        templateUrl: 'app/components/statistic/statistic.html',
-        controller: 'StatisticController',       
+        templateUrl: 'app/components/statistic/statistic.html'       
       })
       .state('room.statistic.trigger', {
         url: "/triggers",
         templateUrl: 'app/components/statistic/trigger/triggersActions.html',
-        controller: 'TriggersActionController',       
+        controller: 'TriggersActionController'       
       })
       .state('room.statistic.sensorforday', {
         url: "/sensorforday",
         templateUrl: 'app/components/statistic/sensor/sensorsValuesForDay.html',
-        controller: 'SensorsValueController',       
+        controller: 'SensorsValueController'       
       })
        .state('room.statistic.sensorforhour', {
         url: "/sensorforhour",
         templateUrl: 'app/components/statistic/sensor/sensorsValuesForHour.html',
-        controller: 'SensorsValueController',       
+        controller: 'SensorsValueController'       
       })
        .state('room.configuration.sensoredit', {
         url: "/sensors/edit/{id:int}",

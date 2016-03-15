@@ -1,15 +1,14 @@
 <div class="container">			
 
-   <h3 class="page-header">Statistic of last day</h3>
-<div class="chartWrapper">
-    <div class="row">
-      <div class="col-xs-10 col-sm-6 col-md-3" ng-repeat="sensor in sensors">
- 		<canvas id="line" class="chart chart-line" chart-data="data"
-  chart-labels="labels" chart-legend="true" chart-series="[sensor.Name]" sensorid="{{sensor.Id}}"
-   values-for-day>
-</canvas> 
- 	</div>
-
- </div>
- </div>
- </div>
+	<h3 class="page-header">Statistic of last day</h3>
+	<div class="chartWrapper">
+		<div class="row">
+			<div class="col-xs-10 col-sm-6 col-md-3" ng-repeat="sensor in sensors">
+				<canvas id="line" class="chart chart-line" chart-data="data"
+				chart-labels="labels" chart-legend="true" chart-series="[sensor.Name]" sensorid="{{sensor.Id}}"
+				values-for-day>
+				</canvas> 
+			</div>
+		</div>
+	</div>
+</div>

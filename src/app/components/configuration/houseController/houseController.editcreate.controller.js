@@ -7,12 +7,26 @@ angular.module('smartHouseAngular').controller('HouseControllerEditCreateControl
 	$scope.changeHouseController = function(){
 		if($scope.houseControllerDTO.Id == undefined){
 			$scope.houseControllerDTO.RoomId = $stateParams.roomId;
-			$http.post("api/housecontroller", $scope.houseControllerDTO);
+			$http.post("api/housecontroller", $scope.houseControllerDTO)
+				.then(
+					function(response){
+						$scope.error = false;
+						$state.go("room.configuration.houseCotrollers");
+					},
+					function(response){
+						$scope.error = true;
+					});
 		}
 		else{
-			$http.put("api/housecontroller", $scope.houseControllerDTO);
-			// $http.post("api/sensor/edit?id="+$scope.sensorDTO.Id, $scope.sensorDTO)
+			$http.put("api/housecontroller", $scope.houseControllerDTO)
+				.then(
+					function(response){
+						$scope.error = false;
+						$state.go("room.configuration.houseControllers");
+					},
+					function(response){
+						$scope.error = true;
+					});
 		}
-	}
-	
+	}	
 });

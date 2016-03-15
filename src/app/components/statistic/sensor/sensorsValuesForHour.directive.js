@@ -2,7 +2,7 @@ angular.module('smartHouseAngular').directive('valuesForHour',  function($interv
 
 	return{
 		link : function(scope, element, attrs){
-	GetValues();
+			GetValues();
 			checkingSensorsValues = $interval(function () {	GetValues()	}, 4000);
 
 			function GetValues(){
@@ -26,17 +26,15 @@ angular.module('smartHouseAngular').directive('valuesForHour',  function($interv
 					for (var i = 0; i < length; i = i+ step) {
 						
 						var _date = $filter('date')(new Date(result.data[i].TimeMeasurement), 'HH:mm:ss');
-							carLabels.push(_date.toUpperCase());
-							carData.push(result.data[i].Value);
+						carLabels.push(_date.toUpperCase());
+						carData.push(result.data[i].Value);
 					}
-							
-			
+
 					scope[attrs.chartData] = [carData];
-					scope[attrs.chartLabels] = carLabels;
-		
+					scope[attrs.chartLabels] = carLabels;				
 				})
 			}
-		}}
-	});
-	
-		
+		}
+	}
+});
+

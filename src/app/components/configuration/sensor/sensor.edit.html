@@ -1,28 +1,31 @@
-<div class="configurationPageWrapper">
-<form class="form-horizontal" role="form" sensor-details>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Name</label>
-		<div class="col-sm-10">
-			<input class="form-control"  type="text" ng-model="sensorDTO.Name">
-		</div>
-		<div class="make-switch" >
-			<label class="col-sm-2 control-label">Enable</label>
-			<div class="col-sm-10">
-				<input type="checkbox"  ng-model="sensorDTO.Enable" checked init-switch bootstrap-switch-model>
+<div class="configurationContainer">
+	<form name="sensorForm" class="form" role="form" sensor-details>
+		<div class="form-group">
+			<label class="col-sm-2 configurationLable">Name</label>
+			<div class="configurationPageWrapperDiv input-group input-group-sm	 col-sm-8">
+				<input class="form-control" name="name"  type="text" ng-model="sensorDTO.Name" ng-minlength="4" required>
+				<p ng-show="sensorForm.name.$error.minlength" class="help-block">Name is too short.</p>
 			</div>
-		</div>
-
-		<label for="repeatSelect" class="col-sm-2 control-label"> Type </label><br/>
-		<div class="col-sm-10">
-			<select  ng-model="sensorDTO.SensorsTypeId">
-				<option ng-repeat="sensorsType in sensorsTypes"  value="{{sensorsType.Id}}">{{sensorsType.Name}}</option>
-			</select>
-		</div>
-		<div>
-			<br/>
-			<div class="col-sm-2">
-				<input type="button" class="btn btn-primary" ui-sref="room.configuration.sensors" ng-click="changeSensor()" value="Edit">
-				<div>
+			<div class="make-switch" >
+				<label  class=" col-sm-2 configurationLable">Enable</label>
+				<div class="configurationPageWrapperDiv col-sm-10">
+					<input type="checkbox"  ng-model="sensorDTO.Enable" checked init-switch bootstrap-switch-model>
 				</div>
-			</form>
 			</div>
+
+			<label for="repeatSelect" class="col-sm-2 configurationLable"> Type </label><br/>
+			<div class="configurationPageWrapperDiv input-group input-group-sm col-sm-8">
+				<select class="form-control" name="type" ng-model="sensorDTO.SensorsTypeId" required>
+					<option ng-repeat="sensorsType in sensorsTypes"  value="{{sensorsType.Id}}">{{sensorsType.Name}}</option>
+				</select>
+				<p ng-show="sensorForm.type.$error.required" class="help-block">Should check type.</p>
+			</div>
+			<div class="creatEditButton pull-right">
+				<input type="button" class=" btn btn-primary"  ng-click="changeSensor()" value="Save" ng-click="changeSensor(sensorForm.$valid)" value="Create" ng-disabled="sensorForm.$invalid">
+				<span ng-if="error" class="show-error-text">
+					Request faild
+				</span>
+			</div>
+		</div>
+	</form>
+</div>

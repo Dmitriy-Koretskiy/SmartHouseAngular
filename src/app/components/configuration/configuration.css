@@ -1,3 +1,43 @@
 .configurationPageWrapper{
 	padding-top: 4%;
 }
+
+.configurationPageWrapper input{
+	margin-bottom: 20px;
+}
+.configurationPageWrapperDiv{
+	margin-bottom: 20px;
+}
+
+.configurationPageWrapperSwitch{
+	margin-left: -8px;
+}
+
+.creatEditButton{
+	padding-top: 20px; 
+	padding-right: 140px;
+}
+
+.configurationContainer{
+	padding-top: 4%;
+	margin-left: -75px;
+}
+
+.configurationList{
+	padding-top: 4%;
+	margin-left: -55px;
+}
+
+.configurationLable{
+	margin-top: 8px;
+	padding-right: -25px;
+	margin-right: -45px;
+	padding-left: 15px;
+	margin-left: 45px;
+	font-size: 12px;
+}
+
+.show-error-text{
+	font-size: 10px;
+	color: red;
+}

@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-    .module('smartHouseAngular')
-    .directive('sidebar',  function () {
+  .module('smartHouseAngular')
+  .directive('sidebar',  function () {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/sidebar/sidebar.html',
@@ -15,12 +15,7 @@
     };
 
     return directive;
-
-    /** @ngInject */
     
   });
-
-  /** @ngInject */
- 
 
 })();

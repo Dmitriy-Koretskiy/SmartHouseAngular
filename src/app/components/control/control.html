@@ -1,20 +1,49 @@
-	<div class="container-fluid controlWrapper">
-	<label class="col-sm-3 control-label">Server state</label>
+<div class="container-fluid controlWrapper">
+
+
+ <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contactForm"> Contact Us</button>
+
+
+<div class="modal fade" id="contactForm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Contact Form</h4>
+      </div>
+      <div class="modal-body">
+        <?php if( function_exists( 'ninja_forms_display_form' ) ){ ninja_forms_display_form( 1 ); } ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class= "offlinelable">
+	<label class="control-label">Offline mode</label>
 	<div class="make-switch" >
-		<input type="checkbox" checked init-switch server-switch>
+		<input type="checkbox" checked  server-switch>
 	</div>
-	<h2 class="page-header"></h2>
+	<div>
+	<div class="dashboardWraapper"> 
 		<div class="row">
-			<div class="col-sm-6 col-md-4 col-lg-3"  ng-repeat="triggersState in triggersStates" >
+			<div class="col-xs-9 col-sm-4 col-md-4 col-lg-3"  ng-repeat="triggersState in triggersStates" >
 				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 ">
-							<h4>{{triggersState.Name }}</h4>
-					</div>
-					<div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
-						<div class="make-switch ">
-							<input type="checkbox" init-switch refresh-trigger-state triggerid= "triggersState.Id">
-						</div>		
+					<div class = "card">
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-7 ">
+							<p>{{triggersState.Name }}</p> <br/>
+							<div class="make-switch switchCard">
+								<input type="checkbox"   data-size="mini" init-switch refresh-trigger-state triggerid= "triggersState.Id">
+							</div>	
+						</div>
+						<div class="col-xs-4 col-xs-4-offset  col-sm-4 col-md-3 col-lg-5">
+							<img src="{{triggersState.Image}}" >	
+						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
+</div>

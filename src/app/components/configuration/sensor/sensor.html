@@ -1,18 +1,13 @@
-<div class="configurationPageWrapper">
+<div class="configurationList">
 	<div class="container">
-		<button type="button" class="btn btn-primary" ui-sref="room.configuration.sensorcreate">Create</button>
+		<button type="button" class="btn btn-default" ui-sref="room.configuration.sensorcreate">Create</button>
 		<ul class="list-group">
 			<li class="list-group-item" ng-repeat="sensor in sensors" > 
-				<a ui-sref="room.configuration.sensoredit({id: {{sensor.Id}}})">
-					<span  class="glyphicon glyphicon glyphicon-cog"></span>
-				</a>
-				<a tabindex="0"  ui-sref="room.configuration.sensordetails({id: {{sensor.Id}}})">{{sensor.Name}}</a>
-
-				<a ui-sref="room.configuration.sensors" ng-click="delete(sensor.Id)">
+				<a tabindex="0"  ui-sref="room.configuration.sensoredit({id: {{sensor.Id}}})">{{sensor.Name}}</a>
+				<a  ng-click="delete(sensor.Id)">
 					<span  class="glyphicon glyphicon glyphicon-remove"></span>
 				</a>
 			</li>
-
 		</ul>
 	</div>
 </div>

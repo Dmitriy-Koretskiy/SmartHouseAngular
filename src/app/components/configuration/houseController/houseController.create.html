@@ -1,28 +1,30 @@
-<div class="configurationPageWrapper">
-<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-10">
-      <input class="form-control"  type="text" ng-model="houseControllerDTO.Name">
-    </div>
- <div class="make-switch" >
-    <label class="col-sm-2 control-label">Enable</label>
-    <div class="col-sm-10">
-    <input type="checkbox"  ng-model="houseControllerDTO.Enable" checked init-switch bootstrap-switch-model>
+<div class="configurationContainer">
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-10">
+        <input class="form-control"  type="text" ng-model="houseControllerDTO.Name">
+      </div>
+      <div class="make-switch" >
+        <label class="col-sm-2 control-label">Enable</label>
+        <div class="col-sm-10">
+          <input type="checkbox"  ng-model="houseControllerDTO.Enable" checked init-switch bootstrap-switch-model>
+        </div>
+      </div>
+
+      <label for="repeatSelect" class="col-sm-2 control-label"> Type </label><br/>
+      <div class="col-sm-10">
+        <select class="form-control" ng-model="houseControllerDTO.houseControllersTypeId">
+          <option ng-repeat="houseControllersType in houseControllersTypes"  value="{{houseControllersType.Id}}">{{houseControllersType.Name}}</option>
+        </select>
+      </div>
+      <br/>
+      <div class="col-sm-2">
+       <input type="button" class="btn btn-primary" ui-sref="room.configuration.houseControllers" ng-click="changeHouseController()" value="Create">
+       <span ng-if="error" >
+        Request faild
+      </span>
     </div>
   </div>
-
-<label for="repeatSelect" class="col-sm-2 control-label"> Type </label><br/>
- <div class="col-sm-10">
-    <select  ng-model="houseControllerDTO.houseControllersTypeId">
-      <option ng-repeat="houseControllersType in houseControllersTypes"  value="{{houseControllersType.Id}}">{{houseControllersType.Name}}</option>
-    </select>
-    </div>
- <div>
- <br/>
- <div class="col-sm-2">
- <input type="button" class="btn btn-primary" ui-sref="room.configuration.houseControllers" ng-click="changeHouseController()" value="Create">
-</div>
-
 </form>
 </div>

@@ -1,46 +1,39 @@
-<div class="configurationPageWrapper">
-  <form class="form-horizontal" role="form">
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Name</label>
-      <div class="col-sm-10">
-        <input class="form-control"  type="text" ng-model="triggerDTO.Name">
-      </div>
-      <label class="col-sm-2 control-label">Condition</label>
-      <div class="col-sm-10">
-        <input class="form-control"  type="text" ng-model="triggerDTO.Condition">
-      </div>
-      <div class="make-switch" >
-        <label class="col-sm-2 control-label">Enable</label>
-        <div class="col-sm-10">
-          <input type="checkbox"  ng-model="triggerDTO.Enable" checked init-switch bootstrap-switch-model>
-        </div>
-      </div>
-
+<div class="configurationContainer">   <form class="form-horizontal"
+role="form" trigger-details>     <div class="form-group">       <label class
+="col-sm-2 control-label">Name</label>       <div class="col-sm-10">
+<input class="form-control"  type="text" ng-model="triggerDTO.Name">
+</div>       <label class="col-sm-2 control-label">Condition</label>
+<div class="col-sm-10">         <input class="form-control"  type="text" ng-
+model="triggerDTO.Condition">       </div>       <div class="make-switch" >
+<label class="col-sm-2 control-label">Enable</label>         <div class="col-
+sm-10">           <input type="checkbox"  ng-model="triggerDTO.Enable" checked
+init-switch bootstrap-switch-model>         </div>       </div>
 
       <label for="repeatSelect" class="col-sm-2 control-label"> Sensor </label><br/>
       <div class="col-sm-10">
-      <select  ng-model="triggerDTO.SensorId" >
+        <select class="form-control" ng-model="triggerDTO.SensorId" value="{{triggerDTO.SensorId}}">
           <option ng-repeat="sensor in sensors"  value="{{sensor.Id}}">{{sensor.Name}}</option>
         </select>
       </div>
       <label for="repeatSelect" class="col-sm-2 control-label"> HouseController </label><br/>
       <div class="col-sm-10">
-        <select  ng-model="triggerDTO.HouseControllerId">
+        <select class="form-control"  ng-model="triggerDTO.HouseControllerId">
           <option ng-repeat="houseController in houseControllers"  value="{{houseController.Id}}">{{houseController.Name}}</option>
         </select>
       </div>
       <label for="repeatSelect" class="col-sm-2 control-label"> Type </label><br/>
       <div class="col-sm-10">
-        <select  ng-model="triggerDTO.TriggersTypeId">
+        <select class="form-control"  ng-model="triggerDTO.TriggersTypeId">
           <option ng-repeat="triggersType in triggersTypes"  value="{{triggersType.Id}}">{{triggersType.Name}}</option>
         </select>
       </div>
+      <br/>
+      <div class="col-sm-2">
+       <input type="button" class="btn btn-primary" ui-sref="room.configuration.triggers" ng-click="changeTrigger()" value="Edit">
+       <span ng-if="error" >
+        Request faild
+      </span>
     </div>
-    <div>
-     <br/>
-     <div class="col-sm-2">
-       <input type="button" class="btn btn-primary" ui-sref="room.configuration.triggers" ng-click="changeTrigger()" value="Create">
-       <div>
-       </div>
-     </form>
-   </div>
+  </div>
+</form>
+</div>

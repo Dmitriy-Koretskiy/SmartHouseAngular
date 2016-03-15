@@ -1,10 +1,10 @@
-angular.module('smartHouseAngular').controller('ControlController', function ($interval,  $timeout, $stateParams, $scope, $http) {
-//	getRooms($scope,$http);
+angular.module('smartHouseAngular').controller('ControlController', function ($stateParams, $scope, $http) {
+
 
 	var roomId = $stateParams.roomId; 
 
-		$http.get("api/control?roomId="+ roomId).success(function (result) {
-			$scope.triggersStates = result;
-		});
+	$http.get("api/control/triggersInitState?roomIdForInit="+ roomId).success(function (result) {
+		$scope.triggersStates = result;
+	});
 });
 

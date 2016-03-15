@@ -1,4 +1,4 @@
-angular.module('smartHouseAngular').controller('HouseControllersController', function ($interval,  $timeout,$stateParams, $scope, $http) {
+angular.module('smartHouseAngular').controller('HouseControllersController', function ($state, $stateParams, $scope, $http) {
 
 	$http.get("api/housecontroller/getHouseControllersByRoomId?roomId="+ $stateParams.roomId).then(function(result){
 		$scope.sensors = result.data;
@@ -12,6 +12,6 @@ angular.module('smartHouseAngular').controller('HouseControllersController', fun
 
 	$scope.delete = function (id) {
 		$http.delete("api/housecontroller?id=" + id);
-
+		$state.reload();
 	}
 });	

@@ -1,7 +1,34 @@
 body {
-    padding-top: 50px;
+    padding-top: 55px;
 }
 .dashboard{
 	width: 75%;
-	margin: 0 0 0 20%;
+
+}
+
+.container {
+    width:790px;
+}
+
+.container h3{
+	margin-top: 10px;
+	margin-bottom:  10px;
+}
+
+.room {
+    width:90%;
+
+}
+
+.thumbnail{
+ 	height: 300px;
+ 	text-align: center;
+ }
+
+
+.room-img {
+    top:0;
+    left:0;
+    width:100%;
+    margin-bottom: 40px;
 }

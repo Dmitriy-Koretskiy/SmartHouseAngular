@@ -7,13 +7,12 @@ angular.module('smartHouseAngular').directive('initPopover',  function($interval
 		checkConfig();
 		checkingTriggerState = $interval(function () {
 			checkConfig();
-		}
-		, 5000);
+		}, 5000);
 
 		function checkConfig(){
 			var content;
 			$http.get("api/room/checkConfig").then(function (result) {
-				content = '<strong>Missing devises</strong><br/>';
+				content = '<h4>Missing devises</h4>';
 				if(result.data[0].DeviceName != '')
 				{
 					for (var i = 0; i < result.data.length; i++) {
@@ -22,10 +21,8 @@ angular.module('smartHouseAngular').directive('initPopover',  function($interval
 				}
 				element.popover({html: true,content: content});
 			}
-
-		);
+			);
 		}
-
 	}
 }
 });

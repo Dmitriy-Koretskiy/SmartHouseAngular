@@ -1,7 +1,7 @@
 angular.module('smartHouseAngular').directive('valuesForDay',  function($interval, $http, $filter){
 
 	return{
-	
+
 		link : function(scope, element, attrs){
 
 			GetValues();
@@ -12,7 +12,9 @@ angular.module('smartHouseAngular').directive('valuesForDay',  function($interva
 				.then(function (result) {
 					var  carData= [];
 					var  carLabels= [];
-					var step;
+					var  step;
+					var  writeCounter = 0;
+					var  buffer= 0;
 					var length = result.data.length;
 
 					if(length <= 10)
@@ -25,17 +27,24 @@ angular.module('smartHouseAngular').directive('valuesForDay',  function($interva
 					if(length > 50){
 						step = ~~(result.data.length/5);
 					}
-					for (var i = 0; i < length; i = i+ step) {
-						
-						var _date = $filter('date')(new Date(result.data[i].TimeMeasurement), 'HH:mm:ss');
+					for (var i = 0; i < length; i++) {
+						if(writeCounter<step){
+							buffer += result.data[i].Value;
+						}
+						else{
+							var _date = $filter('date')(new Date(result.data[i].TimeMeasurement), 'HH:mm:ss');
 							carLabels.push(_date.toUpperCase());
-							carData.push(result.data[i].Value);
+							carData.push(buffer/step);
+							buffer = 0;
+							step = 0;
+						}
+						
 					}
-								
 					scope[attrs.chartData] = [carData];
 					scope[attrs.chartLabels] = carLabels;
-		
+
 				})
 			}
-		}}
-	});
+		}
+	}
+});

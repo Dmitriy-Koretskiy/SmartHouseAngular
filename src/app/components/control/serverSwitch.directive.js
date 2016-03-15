@@ -2,22 +2,22 @@ angular.module('smartHouseAngular').directive('serverSwitch',  function($interva
 
 	return{
 		
-	 link : function(scope, element){
-
+		link : function(scope, element){
+			element.bootstrapSwitch('readonly', false);
 
 			element.on('switchChange.bootstrapSwitch', function(scope,event, state) {
-					scope.SystemWorkStatus = {Status: "try" };
-					if(event != true)
-					{
-						scope.SystemWorkStatus.Status = "ServerDisable";
-					}
-					else
-					{
-						scope.SystemWorkStatus.Status = "ServerWork";
-					}
-					$http.put("api/control/putserverstatus", scope.SystemWorkStatus).success(function(result){
-						var t = result;
-					});		
+				scope.SystemWorkStatus = {Status: "try" };
+				if(event != true)
+				{
+					scope.SystemWorkStatus.Status = "ServerDisable";
+				}
+				else
+				{
+					scope.SystemWorkStatus.Status = "ServerWork";
+				}
+				$http.put("api/control/putserverstatus", scope.SystemWorkStatus).success(function(result){
+					var t = result;
+				});		
 				
 			});
 
@@ -32,9 +32,9 @@ angular.module('smartHouseAngular').directive('serverSwitch',  function($interva
 					{
 						element.bootstrapSwitch('state', true);
 					}
-					} )
-				}
-			, 3000);
+				} )
+			}, 3000);
+
 		}
 	}
 });

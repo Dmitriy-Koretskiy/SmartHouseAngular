@@ -42,7 +42,7 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 					else{
 						$http.get("api/control/triggerState?triggerId="+ scope.triggerid)
 						.then(function (result) {
-						
+
 							if((result.data == "On")||(result.data == "ON"))
 							{
 								element.bootstrapSwitch('readonly', false);
@@ -57,8 +57,7 @@ angular.module('smartHouseAngular').directive('refreshTriggerState',  function($
 						})
 					}
 				});		
-			}
-			, 3000);
+			}, 3000);
 		}
 	}
 });

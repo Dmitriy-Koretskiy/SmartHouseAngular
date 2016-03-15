@@ -6,5 +6,4 @@ angular.module('smartHouseAngular').controller('TriggersActionController', funct
 	.then(function (result) {
 		$scope.triggersActions = result.data;
 	})
-
 });
