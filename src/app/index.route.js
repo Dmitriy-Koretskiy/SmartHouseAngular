@@ -13,8 +13,8 @@
        
       .state('house', {
         url: "/house",
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
+        templateUrl: 'app/TestPage/testPage.html',
+        controller: 'TestPageController',
         controllerAs: 'main'        
       })
       .state('room', {
